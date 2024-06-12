@@ -3,9 +3,11 @@ using EmployeeService.Domain;
 
 namespace EmployeeService.Services
 {
-    public interface IEmployeeService : IDisposable
+    public interface IEmployeeService
     {
-        Task<List<Employee>> GetEmployeesAsync(EmployeeRequest request);
-        void GetException();
+        Task AddEmployeeAsync(EmployeeRequest request);
+        Task DeleteEmployeeAsync(int id);
+        Task<IEnumerable<EmployeeResponse>> GetEmployeesAsync(EmployeeRequest request);
+        Task UpdateEmployeeAsync(int id, EmployeeRequest request);
     }
 }

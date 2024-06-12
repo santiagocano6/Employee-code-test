@@ -19,6 +19,8 @@ namespace EmployeeService.Data.Models
         [MaxLength(50)]
         public string Email { get; set; }
         [Required]
+        public DateTime JoinedOn { get; set; }
+        [Required]
         public DateTime CreatedOn { get; set; }
         [Required]
         public DateTime ModifiedOn { get; set; }

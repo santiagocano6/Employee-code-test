@@ -7,5 +7,7 @@ namespace EmployeeService.Data
     {
         DbSet<Employee> Employees { get; set; }
         DbSet<EmploymentType> EmploymentTypes { get; set; }
+
+        int SaveChanges();
     }
 }

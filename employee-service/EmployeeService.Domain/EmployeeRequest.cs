@@ -2,10 +2,10 @@
 {
     public class EmployeeRequest
     {
-        public string? Author { get; set; }
-        public string? ISBN { get; set; }
-        public bool? Own { get; set; }
-        public bool? Love { get; set; }
-        public bool? Wanted { get; set; }
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Email { get; set; }
+        public DateTime? JoinedOn { get; set; }
+        public int? EmploymentTypeId { get; set; }
     }
 }

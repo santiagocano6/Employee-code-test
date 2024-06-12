@@ -1,0 +1,22 @@
+.employeeContainer {
+    max-width: 1000px;
+    margin: 10px auto;
+}
+
+.filterContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.titleContainer span {
+    font-size: large;
+}
+
+.tableContainer {
+    margin-top: 10px;
+}

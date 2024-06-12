@@ -1,4 +1,5 @@
-﻿using EmployeeService.Data;
+﻿using Azure.Core;
+using EmployeeService.Data;
 using EmployeeService.Data.Models;
 using EmployeeService.Domain;
 using Microsoft.EntityFrameworkCore;
@@ -11,43 +12,49 @@ namespace EmployeeService.Services
         public EmployeeService(IEmployeeContext context)
         {
             _context = context;
-            OnSaveMessageEvent += OnSaveMessageHandler;
         }
 
-        public void Dispose()
+        public async Task<IEnumerable<EmployeeResponse>> GetEmployeesAsync(EmployeeRequest request)
         {
+            var employeeQuery = _context.Employees.AsQueryable().Include(x => x.EmploymentType);
+
+            var response = await employeeQuery.ToListAsync();
+
+            return response.ConvertToReponse();
         }
 
-        public event EventHandler<string> OnSaveMessageEvent;
-
-        protected virtual void OnSaveMessageHandler(object? sender, string message)
+        public async Task AddEmployeeAsync(EmployeeRequest request)
         {
-            //Save message into logs
-            Console.WriteLine(message);
+            var employee = request.ConvertToModel();
+            await _context.Employees.AddAsync(employee);
+            _context.SaveChanges();
         }
 
-
-        public async Task<List<Employee>> GetEmployeesAsync(EmployeeRequest request)
+        public async Task DeleteEmployeeAsync(int id)
         {
-            try
+            var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            if (employee != null)
             {
-                var employeeQuery = _context.Employees.AsQueryable();
-
-                var response = await employeeQuery.ToListAsync();
-                OnSaveMessageEvent.Invoke(this, $"GetEmployeesAsync: {response.Count} employees retrieved");
-
-                return response;
-            }
-            catch(Exception ex)
-            {
-                OnSaveMessageEvent.Invoke(this, $"GetEmployeesAsync: {ex.Message}");
-                throw;
+                _context.Employees.Remove(employee);
+                _context.SaveChanges();
             }
         }
 
-        public void GetException()
+        public async Task UpdateEmployeeAsync(int id, EmployeeRequest request)
         {
-            throw new NotImplementedException();
+            var employee = await _context.Employees.FirstOrDefaultAsync(x => x.Id == id);
+            if (employee != null)
+            {
+                employee.FirstName = request.FirstName;
+                employee.LastName = request.LastName;
+                employee.Email = request.Email;
+                employee.EmploymentTypeId = request.EmploymentTypeId.GetValueOrDefault((int)Enums.EmploymentTypes.Permanent);
+                employee.JoinedOn = request.JoinedOn.GetValueOrDefault(DateTime.Now);
+                employee.ModifiedOn = DateTime.Now;
+                _context.Employees.Update(employee);
+
+                _context.SaveChanges();
+            }
         }
 
     }

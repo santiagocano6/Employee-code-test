@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EmployeeService.Data.Migrations
 {
     [DbContext(typeof(EmployeeContext))]
-    [Migration("20240612040330_initial migration")]
+    [Migration("20240612195745_initial migration")]
     partial class initialmigration
     {
         /// <inheritdoc />
@@ -49,6 +49,9 @@ namespace EmployeeService.Data.Migrations
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<DateTime>("JoinedOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -67,62 +70,68 @@ namespace EmployeeService.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedOn = new DateTime(2011, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9241),
                             Email = "holmes@detectives.org",
                             EmploymentTypeId = 1,
                             FirstName = "Sherlock",
+                            JoinedOn = new DateTime(2011, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Holmes",
-                            ModifiedOn = new DateTime(2011, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9260)
                         },
                         new
                         {
                             Id = 2,
-                            CreatedOn = new DateTime(2013, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9283),
                             Email = "marple@detectives.org",
                             EmploymentTypeId = 2,
                             FirstName = "Jane",
+                            JoinedOn = new DateTime(2013, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Marple",
-                            ModifiedOn = new DateTime(2013, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9284)
                         },
                         new
                         {
                             Id = 3,
-                            CreatedOn = new DateTime(2012, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9302),
                             Email = "poirot@detectives.org",
                             EmploymentTypeId = 1,
                             FirstName = "Hercule",
+                            JoinedOn = new DateTime(2012, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Poirot",
-                            ModifiedOn = new DateTime(2012, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9303)
                         },
                         new
                         {
                             Id = 4,
-                            CreatedOn = new DateTime(2024, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9316),
                             Email = "drew@detectives.org",
                             EmploymentTypeId = 3,
                             FirstName = "Nancy",
+                            JoinedOn = new DateTime(2024, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Drew",
-                            ModifiedOn = new DateTime(2024, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9316)
                         },
                         new
                         {
                             Id = 5,
-                            CreatedOn = new DateTime(2018, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9329),
                             Email = "fletcher@detectives.org",
                             EmploymentTypeId = 2,
                             FirstName = "Jessica",
+                            JoinedOn = new DateTime(2018, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Fletcher",
-                            ModifiedOn = new DateTime(2018, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9330)
                         },
                         new
                         {
                             Id = 6,
-                            CreatedOn = new DateTime(2016, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9346),
                             Email = "columbo@detectives.org",
                             EmploymentTypeId = 1,
                             FirstName = "Frank",
+                            JoinedOn = new DateTime(2016, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Columbo",
-                            ModifiedOn = new DateTime(2016, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            ModifiedOn = new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9346)
                         });
                 });
 

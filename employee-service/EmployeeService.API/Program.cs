@@ -16,6 +16,7 @@ builder.Services.AddDbContext<EmployeeContext>(options => options.UseSqlServer(b
 
 builder.Services.AddScoped<IEmployeeContext, EmployeeContext>();
 builder.Services.AddScoped<IEmployeeService, EmployeeService.Services.EmployeeService>();
+builder.Services.AddScoped<IEmploymentTypeService, EmployeeService.Services.EmploymentTypeService>();
 
 builder.Services.AddCors();
 

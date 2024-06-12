@@ -34,6 +34,7 @@ namespace EmployeeService.Data.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    JoinedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedOn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EmploymentTypeId = table.Column<int>(type: "int", nullable: false)
@@ -61,15 +62,15 @@ namespace EmployeeService.Data.Migrations
 
             migrationBuilder.InsertData(
                 table: "Employees",
-                columns: new[] { "Id", "CreatedOn", "Email", "EmploymentTypeId", "FirstName", "LastName", "ModifiedOn" },
+                columns: new[] { "Id", "CreatedOn", "Email", "EmploymentTypeId", "FirstName", "JoinedOn", "LastName", "ModifiedOn" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2011, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "holmes@detectives.org", 1, "Sherlock", "Holmes", new DateTime(2011, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 2, new DateTime(2013, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "marple@detectives.org", 2, "Jane", "Marple", new DateTime(2013, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 3, new DateTime(2012, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "poirot@detectives.org", 1, "Hercule", "Poirot", new DateTime(2012, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 4, new DateTime(2024, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "drew@detectives.org", 3, "Nancy", "Drew", new DateTime(2024, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, new DateTime(2018, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "fletcher@detectives.org", 2, "Jessica", "Fletcher", new DateTime(2018, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 6, new DateTime(2016, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "columbo@detectives.org", 1, "Frank", "Columbo", new DateTime(2016, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 1, new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9241), "holmes@detectives.org", 1, "Sherlock", new DateTime(2011, 6, 5, 0, 0, 0, 0, DateTimeKind.Unspecified), "Holmes", new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9260) },
+                    { 2, new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9283), "marple@detectives.org", 2, "Jane", new DateTime(2013, 11, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), "Marple", new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9284) },
+                    { 3, new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9302), "poirot@detectives.org", 1, "Hercule", new DateTime(2012, 8, 9, 0, 0, 0, 0, DateTimeKind.Unspecified), "Poirot", new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9303) },
+                    { 4, new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9316), "drew@detectives.org", 3, "Nancy", new DateTime(2024, 3, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), "Drew", new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9316) },
+                    { 5, new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9329), "fletcher@detectives.org", 2, "Jessica", new DateTime(2018, 5, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), "Fletcher", new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9330) },
+                    { 6, new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9346), "columbo@detectives.org", 1, "Frank", new DateTime(2016, 9, 7, 0, 0, 0, 0, DateTimeKind.Unspecified), "Columbo", new DateTime(2024, 6, 12, 14, 57, 44, 724, DateTimeKind.Local).AddTicks(9346) }
                 });
 
             migrationBuilder.CreateIndex(

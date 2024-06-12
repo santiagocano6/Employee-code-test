@@ -2,6 +2,7 @@ using EmployeeService.Data.Models;
 using EmployeeService.Domain;
 using EmployeeService.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace EmployeeService.API.Controllers
 {
@@ -17,9 +18,27 @@ namespace EmployeeService.API.Controllers
         }
 
         [HttpGet(Name = "GetEmployees")]
-        public async Task<IEnumerable<Employee>> GetAllEmployees([FromQuery] EmployeeRequest request)
+        public async Task<IEnumerable<EmployeeResponse>> GetAllEmployees([FromQuery] EmployeeRequest request)
         {
             return await _employeeService.GetEmployeesAsync(request);
+        }
+
+        [HttpPost]
+        public async Task PostEventAsync(EmployeeRequest request)
+        {
+            await _employeeService.AddEmployeeAsync(request);
+        }
+
+        [HttpPut("{id:int}")]
+        public async Task PutEventAsync(int id, EmployeeRequest request)
+        {
+            await _employeeService.UpdateEmployeeAsync(id, request);
+        }
+
+        [HttpDelete("{id:int}")]
+        public async Task DeleteEventAsync(int id)
+        {
+            await _employeeService.DeleteEmployeeAsync(id);
         }
     }
 }

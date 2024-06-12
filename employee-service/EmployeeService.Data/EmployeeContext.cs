@@ -44,8 +44,9 @@ namespace EmployeeService.Data
                     FirstName = "Sherlock",
                     LastName = "Holmes",
                     Email = "holmes@detectives.org",
-                    CreatedOn = new DateTime(2011, 6, 5),
-                    ModifiedOn = new DateTime(2011, 6, 5),
+                    JoinedOn = new DateTime(2011, 6, 5),
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now,
                     EmploymentTypeId = (int)Enums.EmploymentTypes.Permanent
                 });
             modelBuilder.Entity<Employee>()
@@ -55,8 +56,9 @@ namespace EmployeeService.Data
                     FirstName = "Jane",
                     LastName = "Marple",
                     Email = "marple@detectives.org",
-                    CreatedOn = new DateTime(2013, 11, 14),
-                    ModifiedOn = new DateTime(2013, 11, 14),
+                    JoinedOn = new DateTime(2013, 11, 14),
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now,
                     EmploymentTypeId = (int)Enums.EmploymentTypes.Freelance
                 });
             modelBuilder.Entity<Employee>()
@@ -66,8 +68,9 @@ namespace EmployeeService.Data
                     FirstName = "Hercule",
                     LastName = "Poirot",
                     Email = "poirot@detectives.org",
-                    CreatedOn = new DateTime(2012, 8, 9),
-                    ModifiedOn = new DateTime(2012, 8, 9),
+                    JoinedOn = new DateTime(2012, 8, 9),
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now,
                     EmploymentTypeId = (int)Enums.EmploymentTypes.Permanent
                 });
             modelBuilder.Entity<Employee>()
@@ -77,8 +80,9 @@ namespace EmployeeService.Data
                     FirstName = "Nancy",
                     LastName = "Drew",
                     Email = "drew@detectives.org",
-                    CreatedOn = new DateTime(2024, 3, 4),
-                    ModifiedOn = new DateTime(2024, 3, 4),
+                    JoinedOn = new DateTime(2024, 3, 4),
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now,
                     EmploymentTypeId = (int)Enums.EmploymentTypes.Intern
                 });
             modelBuilder.Entity<Employee>()
@@ -88,8 +92,9 @@ namespace EmployeeService.Data
                     FirstName = "Jessica",
                     LastName = "Fletcher",
                     Email = "fletcher@detectives.org",
-                    CreatedOn = new DateTime(2018, 5, 12),
-                    ModifiedOn = new DateTime(2018, 5, 12),
+                    JoinedOn = new DateTime(2018, 5, 12),
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now,
                     EmploymentTypeId = (int)Enums.EmploymentTypes.Freelance
                 });
             modelBuilder.Entity<Employee>()
@@ -99,8 +104,9 @@ namespace EmployeeService.Data
                     FirstName = "Frank",
                     LastName = "Columbo",
                     Email = "columbo@detectives.org",
-                    CreatedOn = new DateTime(2016, 9, 7),
-                    ModifiedOn = new DateTime(2016, 9, 7),
+                    JoinedOn = new DateTime(2016, 9, 7),
+                    CreatedOn = DateTime.Now,
+                    ModifiedOn = DateTime.Now,
                     EmploymentTypeId = (int)Enums.EmploymentTypes.Permanent
                 });
         }
