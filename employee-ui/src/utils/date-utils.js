@@ -1,5 +1,4 @@
 export const formatDateToDDMMYYYY = dateValue => {
-    console.log(dateValue);
     const createdOn = new Date(dateValue);
     return [
         ('0' + createdOn.getDate()).slice(-2),

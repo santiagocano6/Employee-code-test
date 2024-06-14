@@ -18,7 +18,7 @@ Follow this instructions to run the service:
 
 ## Run the Service
 
-Run the app using the Run button. It will run the app on http and https. Please ensure the service is running in http://localhost:5163/swagger/index.html.
+Change the build to HTTP and then Run the app using the Run button. Please ensure the service is running in http://localhost:5163/swagger/index.html.
 
 ## Important Notes
 

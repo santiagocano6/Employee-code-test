@@ -14,3 +14,9 @@ See README on employee-ui folder.
 ## Run the Service
 
 See README on employee-service folder.
+
+## Light Web Version
+
+You can open the app on https://santiagocano6.github.io/Employee-code-test/
+
+This app will not use a DB but will mock BE calls
