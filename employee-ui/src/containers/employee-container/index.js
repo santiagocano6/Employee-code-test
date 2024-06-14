@@ -13,11 +13,6 @@ function EmployeeContainer() {
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const [isLoading, setIsLoading] = useState(false);
-  const [searchBy, setSearchBy] = useState('0');
-  const [searchValue, setSearchValue] = useState('');
-  const [own, setOwn] = useState(false);
-  const [love, setLove] = useState(false);
-  const [wanted, setWanted] = useState(false);
 
   useEffect(() => {
     searchEmployees();
@@ -35,22 +30,18 @@ function EmployeeContainer() {
     });
   }
 
-  const onSaveEmployee = (employeeData) => {
-    
-  }
-
   return (
     <div className="employeeContainer">
       <div className="filterContainer">
         <div className="titleContainer">
           <span><b>Employee List</b></span>
-          <Button variant="contained" onClick={() => setSelectedEmployee({})}>Add New Employee</Button>
+          <Button disabled={isLoading} variant="contained" onClick={() => setSelectedEmployee({})}>Add New Employee</Button>
         </div>
       </div>
       <div className="tableContainer">
-        <EmployeeTable employeeList={employeeList} refreshData={searchEmployees} setSelectedEmployee={setSelectedEmployee}/>
+        <EmployeeTable employeeList={employeeList} refreshData={searchEmployees} setSelectedEmployee={setSelectedEmployee} isLoading={isLoading} />
       </div>
-      {selectedEmployee && <EmployeeForm employeeData={selectedEmployee} handleClose={() => setSelectedEmployee(null)} saveEmployee={onSaveEmployee}/>}
+      {selectedEmployee && <EmployeeForm employeeData={selectedEmployee} handleClose={() => setSelectedEmployee(null)} refreshData={searchEmployees}/>}
     </div>
   );
 }

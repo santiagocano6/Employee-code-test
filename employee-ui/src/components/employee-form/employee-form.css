@@ -1,11 +1,48 @@
-.container {
+.formContainer {
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400;
+    max-width: 470px;
     background-color: white;
-    border: 1px solid #000;
-    box-shadow: 24;
-    padding: 4px;
+    box-shadow: 0.3em 0.3em 1em #000;
+}
+
+.formHeader {
+    padding: 10px 15px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #dddddd;
+}
+
+.formHeader svg {
+    color: black;
+}
+
+.formTitle {
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modifiedOn {
+    font-size: small;
+    color: #afafaf;
+}
+
+.formBody {
+    padding: 15px 10px 20px 10px;
+}
+
+.formFooter {
+    display: flex;
+    justify-content: flex-end;
+    padding: 15px;
+    border-top: 1px solid #dddddd;
+}
+
+.formFooter button {
+    margin-left: 10px;
+    width: 100px;
 }

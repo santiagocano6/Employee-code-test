@@ -8,15 +8,14 @@ import Paper from '@mui/material/Paper';
 import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
+import Loader from '../loader';
 import { deleteEmployee } from '../../services/employee-service';
 
-import { formatDate } from '../../utils/date-utils';
+import { formatDateToDDMMYYYY } from '../../utils/date-utils';
 
 import './employee-table.css';
-import { useState } from 'react';
 
-function EmployeeTable({ employeeList, refreshData, setSelectedEmployee }) {
-
+function EmployeeTable({ employeeList, refreshData, setSelectedEmployee, isLoading }) {
   const onDeleteEmployee = (id) => {
     deleteEmployee(id).then(() => refreshData());
   };
@@ -35,23 +34,23 @@ function EmployeeTable({ employeeList, refreshData, setSelectedEmployee }) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {employeeList.map(employee => (
-            <TableRow
-              key={employee.id}
-            >
-              <TableCell>{employee.firstName}</TableCell>
-              <TableCell>{employee.lastName}</TableCell>
-              <TableCell><a href={`mailto:${employee.email}`}>{employee.email}</a></TableCell>
-              <TableCell>{employee.employmentType}</TableCell>
-              <TableCell>{formatDate(employee.createdOn)}</TableCell>
-              <TableCell>
-                <EditOutlinedIcon className="clickableIcon" onClick={() => setSelectedEmployee(employee)} />
-                <DeleteOutlinedIcon className="clickableIcon" onClick={() => onDeleteEmployee(employee.id)} />
-              </TableCell>
-            </TableRow>
-          ))}
+          {!isLoading && employeeList.map(employee => (
+              <TableRow key={employee.id}>
+                <TableCell>{employee.firstName}</TableCell>
+                <TableCell>{employee.lastName}</TableCell>
+                <TableCell><a href={`mailto:${employee.email}`}>{employee.email}</a></TableCell>
+                <TableCell>{employee.employmentType}</TableCell>
+                <TableCell>{formatDateToDDMMYYYY(employee.joinedOn)}</TableCell>
+                <TableCell>
+                  <EditOutlinedIcon className="clickableIcon" onClick={() => setSelectedEmployee(employee)} />
+                  <DeleteOutlinedIcon className="clickableIcon" onClick={() => onDeleteEmployee(employee.id)} />
+                </TableCell>
+              </TableRow>
+            ))
+          }
         </TableBody>
       </Table>
+      {isLoading && <Loader />}
     </TableContainer>
   );
 }

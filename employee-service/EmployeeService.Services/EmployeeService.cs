@@ -26,6 +26,8 @@ namespace EmployeeService.Services
         public async Task AddEmployeeAsync(EmployeeRequest request)
         {
             var employee = request.ConvertToModel();
+            employee.CreatedOn = DateTime.Now;
+            employee.ModifiedOn = DateTime.Now;
             await _context.Employees.AddAsync(employee);
             _context.SaveChanges();
         }

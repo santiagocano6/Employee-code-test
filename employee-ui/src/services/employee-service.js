@@ -32,3 +32,8 @@ export const deleteEmployee = (id) => {
     const url = `${baseURL}/employee/${id}`;
     return axios.delete(url);
 };
+
+export const getEmploymentTypes = () => {
+    const url = `${baseURL}/employmenttype`;
+    return axios.get(url).then((response) => response.data);
+};
