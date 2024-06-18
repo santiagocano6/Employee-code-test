@@ -98,7 +98,7 @@ export const getEmployeeListMock = () => {
 
 export const createEmployeeMock = (newEmployee) => {
     const employeeListMock = getSavedEmployeeListMock();
-    const lastId = employeeListMock.reduce((accumulator, current) => current > accumulator ? current : accumulator, 0);
+    const lastId = employeeListMock.reduce((accumulator, current) => current.id > accumulator ? current.id : accumulator, 0);
     const newEmployeeListMock = [ ...employeeListMock, {
         ...newEmployee,
         id: lastId + 1,
